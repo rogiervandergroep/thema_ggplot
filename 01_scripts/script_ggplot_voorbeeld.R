@@ -1,5 +1,10 @@
 # Dataframe aanmaken in R
 
+source(
+  "https://raw.githubusercontent.com/rogiervandergroep/thema_ggplot/main/01_scripts/script_ggplot_theme.R"
+)
+
+
 data_voorbeeld <- data.frame(
   week = c(
     "week 1",
