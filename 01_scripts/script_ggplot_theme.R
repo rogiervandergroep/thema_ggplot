@@ -1,7 +1,4 @@
 library(tidyverse)
-library(patchwork)
-library(svglite)
-library(scales)
 
 theme_phd_kitten <- function(
   orientation = "vertical",
@@ -84,9 +81,9 @@ blauw_pal <- c(
 )
 
 grDevices::windowsFonts(
-  "Amsterdam Sans" = grDevices::windowsFont("Amsterdam Sans")
+  "helvetica" = grDevices::windowsFont("helvetica")
 )
-font <- "Amsterdam Sans"
+font <- "helvetica"
 
 
 ## figuur verticaal met waardes naast elkaar ---
@@ -143,7 +140,7 @@ my_plot_vertical <- function(
     guides(
       fill = guide_legend(
         nrow = guide_nr,
-        reverse = T
+        reverse = F
       ),
       colour = "none"
     )
@@ -212,29 +209,3 @@ my_plot_horizontal <- function(
       colour = "none"
     )
 }
-
-
-tabel_tanja <- openxlsx::read.xlsx("00 ruwe data/data_figuur1.xlsx")
-
-dag_levels <- c("ma", "di", "wo", "do", "vrij", "za", "zo")
-
-tabel_tanja |>
-
-  my_plot_vertical(
-    y_var = waarde,
-    x_var = fct_relevel(dag, dag_levels),
-    fill_var = meetmoment,
-    color_var = blauw_pal[c(1, 5)]
-  ) +
-  facet_wrap(~week)
-
-
-tabel_tanja |>
-
-  my_plot_horizontal(
-    x_var = waarde,
-    y_var = fct_rev(fct_relevel(dag, dag_levels)),
-    fill_var = meetmoment,
-    color_var = blauw_pal[c(1, 5)]
-  ) +
-  facet_wrap(~week)
