@@ -14,9 +14,8 @@ source(
 dag_levels <- c("ma", "di", "wo", "do", "vrij", "za", "zo")
 
 
-## data met vertikale kolommen
+## figuur met vertikale kolommen
 data_voorbeeld |>
-
   my_plot_vertical(
     y_var = waarde,
     x_var = fct_relevel(dag, dag_levels),
@@ -25,15 +24,15 @@ data_voorbeeld |>
   ) +
   facet_wrap(~week)
 
-### data zonder facet
+
+### figuur met vertikale kolommen zonder facet
 data_voorbeeld |>
   filter(week == 'week 1') |>
-
   my_plot_vertical(
     y_var = waarde,
     x_var = fct_relevel(dag, dag_levels),
     fill_var = fct_rev(meetmoment),
-    color_var = blauw_pal[c(1, 6)]
+    color_var = grijs_pal[c(1, 6)]
   )
 
 
@@ -43,6 +42,13 @@ data_voorbeeld |>
     x_var = waarde,
     y_var = fct_rev(fct_relevel(dag, dag_levels)),
     fill_var = meetmoment,
-    color_var = blauw_pal[c(1, 6)]
+    color_var = wild_pal[c(3, 6)]
   ) +
   facet_wrap(~week)
+
+
+# svg files zijn mooier dan png omdat het vector-bestanden zijn
+# met ggsave sla de laatste figuur op
+library(svglite)
+
+# ggsave("map_met_plaatjes/figuur_1.svg", width = 10, height = 4)
