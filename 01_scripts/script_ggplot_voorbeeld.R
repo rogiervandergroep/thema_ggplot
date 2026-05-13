@@ -39,7 +39,6 @@ data_voorbeeld |>
 
 ## figuur met horizontale kolommen
 data_voorbeeld |>
-
   my_plot_horizontal(
     x_var = waarde,
     y_var = fct_rev(fct_relevel(dag, dag_levels)),

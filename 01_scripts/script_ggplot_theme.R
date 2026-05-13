@@ -12,11 +12,6 @@ theme_phd_kitten <- function(
   legend_position = "bottom",
   drop_axis_titles = F
 ) {
-  grDevices::windowsFonts(
-    `Helvetica` = grDevices::windowsFont("Helvetica")
-  )
-  font <- "Helvetica"
-
   theme <- theme_bw() +
     theme(
       axis.text = element_text(family = font, size = 13),
@@ -74,7 +69,6 @@ grijs_pal <- c(
   "#efefef"
 )
 
-
 blauw_pal <- c(
   "#004699",
   "#3858a4",
@@ -87,7 +81,6 @@ blauw_pal <- c(
   "#e7e8f4",
   "#e6e6e6"
 )
-
 
 ## figuur verticaal met waardes naast elkaar ---
 my_plot_vertical <- function(
@@ -129,7 +122,10 @@ my_plot_vertical <- function(
       y = NULL
     ) +
 
-    theme_phd_kitten(legend_position = "bottom") +
+    theme_phd_kitten(
+      orientation = 'vertical',
+      legend_position = "bottom"
+    ) +
     scale_fill_manual(
       name = NULL,
       values = color_var
@@ -191,7 +187,7 @@ my_plot_horizontal <- function(
     ) +
 
     theme_phd_kitten(
-      orientation = 'vertical',
+      orientation = 'horizontal',
       legend_position = "right"
     ) +
     scale_fill_manual(
