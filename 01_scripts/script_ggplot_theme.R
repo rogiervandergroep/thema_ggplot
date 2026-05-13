@@ -1,14 +1,22 @@
 library(tidyverse)
 
+
+grDevices::windowsFonts(
+  "Helvetica" = grDevices::windowsFont("Helvetica")
+)
+font <- "Helvetica"
+
+
 theme_phd_kitten <- function(
   orientation = "vertical",
   legend_position = "bottom",
   drop_axis_titles = F
 ) {
   grDevices::windowsFonts(
-    `Amsterdam Sans` = grDevices::windowsFont("Amsterdam Sans")
+    `Helvetica` = grDevices::windowsFont("Helvetica")
   )
-  font <- "Amsterdam Sans"
+  font <- "Helvetica"
+
   theme <- theme_bw() +
     theme(
       axis.text = element_text(family = font, size = 13),
@@ -79,11 +87,6 @@ blauw_pal <- c(
   "#e7e8f4",
   "#e6e6e6"
 )
-
-grDevices::windowsFonts(
-  "helvetica" = grDevices::windowsFont("helvetica")
-)
-font <- "helvetica"
 
 
 ## figuur verticaal met waardes naast elkaar ---
