@@ -106,7 +106,7 @@ my_plot_vertical <- function(
     geom_text(
       aes(
         y = 0.8 * {{ y_var }},
-        label = {{ y_var }},
+        label = if_else({{ y_var }} > 0, {{ y_var }}, NA),
         color = {{ fill_var }},
       ),
       size = 4.5,
@@ -170,7 +170,7 @@ my_plot_horizontal <- function(
     geom_text(
       aes(
         x = 0.8 * {{ x_var }},
-        label = {{ x_var }},
+        label = if_else({{ x_var }} > 0, {{ x_var }}, NA),
         color = {{ fill_var }},
       ),
       size = 4.5,

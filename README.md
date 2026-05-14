@@ -20,3 +20,4 @@ De volgend paramaters worden toegekend aan de functies:
     staat bij my_plot_horizontal als default op 1 
 
 
+
